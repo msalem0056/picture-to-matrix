@@ -7,6 +7,7 @@ version are then displayed side by side on a web page, showcasing what the compu
 
 # -- Third-Party Imports
 import cv2
+import numpy as np
 import streamlit as st
 
 # -- Local Imports
@@ -53,7 +54,7 @@ def main() -> None:  # Main function to handle camera input and image processing
 
         # Display section title and original (grayscale) image with specified width
         st.write("# What the computer shows you")
-        st.image(gray_img, width=400)
+        st.image(gray_img)
 
 
 if __name__ == "__main__":
