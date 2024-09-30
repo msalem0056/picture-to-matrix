@@ -1,5 +1,5 @@
 """
-This code captures an image from the user's webcam using Streamlit's `camera_input` function and then converts it to grayscale. The original color image and its grayscale
+This code captures an image from the user's webcam using Streamlit's `camera_input` function and then converts it to grayscale. The grayscale image and the matrix representation version
 version are then displayed side by side on a web page, showcasing what the computer "sees" versus what the computer shows the user.
 """
 
@@ -47,13 +47,13 @@ def main() -> None:  # Main function to handle camera input and image processing
         )
 
 
-    # Display section title and grayscale image
-    st.write("# What the computer sees")
-    st.write(gray_img)
+        # Display section title and grayscale image
+        st.write("# What the computer sees")
+        st.write(gray_img)
 
-    # Display section title and original (grayscale) image with specified width
-    st.write("# What the computer shows you")
-    st.image(gray_img, width=400)
+        # Display section title and original (grayscale) image with specified width
+        st.write("# What the computer shows you")
+        st.image(gray_img, width=400)
 
 
 if __name__ == "__main__":
