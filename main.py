@@ -48,13 +48,27 @@ def main() -> None:  # Main function to handle camera input and image processing
         )
 
 
+        computer, human, canny = st.tabs(['Computer Sees', 'You See', 'Canny'])
         # Display section title and grayscale image
-        st.write("# What the computer sees")
-        st.write(gray_img)
+        with computer:
+            st.write("# What the computer sees")
+            st.write(gray_img)
 
         # Display section title and original (grayscale) image with specified width
-        st.write("# What the computer shows you")
-        st.image(gray_img)
+        with human:
+            st.write("# What the computer shows you")
+            st.image(gray_img)
+
+        # Apply Gaussian blur to reduce noise
+        with canny:
+            blurred = cv2.GaussianBlur(gray_img, (5, 5), 0)
+            st.image(blurred)
+
+            # Apply Canny edge detection
+            edges = cv2.Canny(blurred, 10, 250)
+            st.image(edges)
+
+
 
 
 if __name__ == "__main__":
